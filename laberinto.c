@@ -82,6 +82,30 @@ int main() {
             printf("\n");
         }
     }
+    return 0;
+}
+
+
+
+
+
+
+
+
+        // Mostrar laberinto con el ratón en la nueva posición
+        for (int i = 0; i < fila; i++) {
+            for (int j = 0; j < colum; j++) {
+                if (i == raton_x && j == raton_y) {
+                    printf("R ");  // Representación del ratón
+                } else if (laberinto[i][j] == 1) {
+                    printf("0");  // Pared
+                } else {
+                    printf(" ");  // Espacio libre
+                }
+            }
+            printf("\n");
+        }
+    }
 
     return 0;
 }
