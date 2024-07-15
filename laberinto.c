@@ -1,14 +1,14 @@
-#include <stdio.h>//inicializacion de el algoritmo 
-#define fila 10//definir las dimeciones del la matriz
+#include <stdio.h>
+
+#define fila 10
 #define colum 10
-// Función para limpiar la pantalla (utilizando caracteres de escape ANSI)
+
+// Función para limpiar la pantalla
 void clear_screen() {
-    printf("\033[H\033[J");
+    printf("\033[H\033[J");  // Utiliza caracteres de escape ANSI para limpiar la pantalla
 }
-//inicialización de el algoritmo con la función principal
+
 int main() {
-/*matriz con valores de 1 y 0 para que sea mucho mas facil generar comandos 
-la matriz muestra como esta diseñado el algoritmo*/
     int laberinto[fila][colum] = {
         {1, 0, 1, 1, 1, 0, 1, 1, 1, 1},
         {1, 0, 1, 1, 1, 0, 0, 0, 1, 1},
@@ -21,16 +21,12 @@ la matriz muestra como esta diseñado el algoritmo*/
         {1, 1, 1, 1, 1, 1, 0, 0, 1, 1},
         {1, 1, 1, 1, 1, 1, 0, 0, 1, 1}
     };
-    return 0;
-}
-// Posición inicial del ratón(usuario)
-    int raton_x = 0, raton_y = 1;  //con la coordenadas o y 1
+    printf("¡Bienvenido al Laberinto!\n\n");
+    int raton_x = 0, raton_y = 1;  // Posición inicial del ratón
 
-    // Mostrar laberinto inicial
     clear_screen();
-    printf("¡Bienvenido al Laberinto!¡espero verte salir!");
-    /*bucles de for anidados, para que forme el laberinto, 0->son los caminos libres,
-    1-> son paredes o obtaculos que no puede pasar*/
+
+    // Mostrar laberinto inicial con posición del ratón
     for (int i = 0; i < fila; i++) {
         for (int j = 0; j < colum; j++) {
             if (i == raton_x && j == raton_y) {
@@ -43,3 +39,49 @@ la matriz muestra como esta diseñado el algoritmo*/
         }
         printf("\n");
     }
+    printf("\nInstrucciones de movimiento:\n");
+    printf("a - Mover ratón hacia la izquierda\n");
+    printf("w - Mover ratón hacia arriba\n");
+    printf("s - Mover ratón hacia abajo\n");
+    printf("d - Mover ratón hacia la derecha\n");
+    printf("q - Salir del laberinto\n");
+    char direccion;
+    while (1) {  // Bucle infinito para movimiento continuo
+        printf("\nraton: ");
+        scanf(" %c", &direccion);
+
+        clear_screen();
+        printf("raton:\n");
+
+        // Actualizar posición del ratón según la dirección ingresada y validar movimiento
+        if (direccion == 'w' && raton_x > 0 && laberinto[raton_x - 1][raton_y] == 0) {
+            raton_x--;
+        } else if (direccion == 'a' && raton_y > 0 && laberinto[raton_x][raton_y - 1] == 0) {
+            raton_y--;
+        } else if (direccion == 's' && raton_x < fila - 1 && laberinto[raton_x + 1][raton_y] == 0) {
+            raton_x++;
+        } else if (direccion == 'd' && raton_y < colum - 1 && laberinto[raton_x][raton_y + 1] == 0) {
+            raton_y++;
+        } else if (direccion == 'q') {
+            printf("Saliendo del laberinto...\n"); 
+        } else {
+            printf("Movimiento no válido.\n");
+        }
+
+        // Mostrar laberinto con la nueva posición del ratón
+        for (int i = 0; i < fila; i++) {
+            for (int j = 0; j < colum; j++) {
+                if (i == raton_x && j == raton_y) {
+                    printf("R ");  // Representación del ratón
+                } else if (laberinto[i][j] == 1) {
+                    printf("▆");  // Pared
+                } else {
+                    printf(" ");  // Espacio libre
+                }
+            }
+            printf("\n");
+        }
+    }
+
+    return 0;
+}
