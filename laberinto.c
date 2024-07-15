@@ -23,3 +23,23 @@ la matriz muestra como esta diseñado el algoritmo*/
     };
     return 0;
 }
+// Posición inicial del ratón(usuario)
+    int raton_x = 0, raton_y = 1;  //con la coordenadas o y 1
+
+    // Mostrar laberinto inicial
+    clear_screen();
+    printf("¡Bienvenido al Laberinto!¡espero verte salir!");
+    /*bucles de for anidados, para que forme el laberinto, 0->son los caminos libres,
+    1-> son paredes o obtaculos que no puede pasar*/
+    for (int i = 0; i < fila; i++) {
+        for (int j = 0; j < colum; j++) {
+            if (i == raton_x && j == raton_y) {
+                printf("R ");  // Representación del ratón
+            } else if (laberinto[i][j] == 1) {
+                printf("▆");  // Pared
+            } else {
+                printf(" ");  // Espacio libre
+            }
+        }
+        printf("\n");
+    }
