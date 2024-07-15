@@ -39,10 +39,10 @@ printf("¡Bienvenido al Laberinto!\n\n");
     }
 
    printf("\nInstrucciones de movimiento:\n");
-    printf("a - Mover ratón hacia la izquierda\n");
-    printf("w - Mover ratón hacia arriba\n");
-    printf("s - Mover ratón hacia abajo\n");
-    printf("d - Mover ratón hacia la derecha\n");
+    printf("a - Mover raton hacia la izquierda\n");
+    printf("w - Mover raton hacia arriba\n");
+    printf("s - Mover raton hacia abajo\n");
+    printf("d - Mover raton hacia la derecha\n");
     printf("q - Salir del laberinto\n");
     char direccion;
     while (1) {  // Bucle infinito para movimiento continuo
