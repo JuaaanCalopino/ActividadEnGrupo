@@ -65,3 +65,20 @@ printf("\nInstrucciones de movimiento:\n");
             printf("Saliendo del laberinto...\n"); 
         } else {
             printf("Movimiento no válido.\n");
+// Mostrar laberinto con la nueva posición del ratón
+        for (int i = 0; i < fila; i++) {
+            for (int j = 0; j < colum; j++) {
+                if (i == raton_x && j == raton_y) {
+                    printf("R ");  // Representación del ratón
+                } else if (laberinto[i][j] == 1) {
+                    printf("0");  // Pared
+                } else {
+                    printf(" ");  // Espacio libre
+                }
+            }
+            printf("\n");
+        }
+    }
+
+    return 0;
+}
