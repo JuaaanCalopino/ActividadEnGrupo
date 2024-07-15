@@ -38,7 +38,7 @@ printf("¡Bienvenido al Laberinto!\n\n");
         printf("\n");
     }
 
-printf("\nInstrucciones de movimiento:\n");
+   printf("\nInstrucciones de movimiento:\n");
     printf("a - Mover ratón hacia la izquierda\n");
     printf("w - Mover ratón hacia arriba\n");
     printf("s - Mover ratón hacia abajo\n");
@@ -65,6 +65,7 @@ printf("\nInstrucciones de movimiento:\n");
             printf("Saliendo del laberinto...\n"); 
         } else {
             printf("Movimiento no válido.\n");
+        }
 // Mostrar laberinto con la nueva posición del ratón
         for (int i = 0; i < fila; i++) {
             for (int j = 0; j < colum; j++) {
