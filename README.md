@@ -1,4 +1,4 @@
 # ActividadEnGrupo
 Juego de Laberinto en C, a partir de arreglos.
 
-[JUEGO DEL LABERINTO](laberinto)
+[JUEGO DEL LABERINTO](laberinto.c)
