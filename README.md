@@ -2,7 +2,7 @@
 Este programa simulá un juego interactivo donde un raton debe de moverse dnentro de un laberinto, el cual es representado por una matriz predefinida de 13x13. 
 ## Funcionalidades: 
 1. ### Generación aleatoria del laberinto
-- El laberinto se genera dinámicamente con dimensiones predefinidas (10x10).
+- El laberinto se genera dinámicamente con dimensiones predefinidas (13x13).
 - Las paredes y espacios libres dentro del laberinto se determinan aleatoriamente, asegurando que exista al menos una ruta viable desde el punto de inicio hasta la salida.
 2. ### Movimiento automatico del ratón: 
 - El ratón se mueve automáticamente buscando el camino más corto hacia la salida.
