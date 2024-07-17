@@ -7,7 +7,7 @@
 #define WALL '#'
 #define START 'S'
 #define END ' E'
-
+#define PATH_MARKED '-'  // Nuevo símbolo para marcar el camino recorrido
 // Estructura para representar direcciones de movimiento
 typedef struct {
     int x, y;
@@ -52,7 +52,7 @@ int main() {
 
     // Resuelve el laberinto
     int steps = 0;
-    if (solveMaze(maze, 1, 1, N-2, N-2, &steps)) {
+    if (solveMaze(maze, 1, 1, N-3, N-3, &steps)) {
         printf("\nSolución encontrada en %d movimientos.\n", steps);
     } else {
         printf("\nNo se encontró solución.\n");
