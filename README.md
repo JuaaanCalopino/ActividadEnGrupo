@@ -23,4 +23,4 @@ Este algoritmo simulá un juego interactivo donde un raton debe de moverse dentr
 
 A partir de arreglos, funciones y bucles.
 
-[JUEGO DEL LABERINTO](laberinto.c)
+[JUEGO DEL LABERINTO]([laberinto.c](https://github.com/JuaaanCalopino/ActividadEnGrupo/blob/e60c3af68dde6df0dd3e7ebaafbf660328be07b0/labG.c))
