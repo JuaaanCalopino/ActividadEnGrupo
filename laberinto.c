@@ -89,3 +89,38 @@ void printMaze(char maze[N][N]) {
         printf("\n");
     }
 }
+// Función para resolver el laberinto
+int solveMaze(char maze[N][N], int x, int y, int endX, int endY, int *steps) {
+    // Si se alcanza el punto final
+    if (x == endX && y == endY) {
+        return 1;
+    }
+
+    // Verifica los límites del laberinto y si la posición es un obstáculo o ya fue visitada
+    if (x < 0 || x >= N || y < 0 || y >= N || maze[x][y] != PATH) {
+        return 0;
+    }
+
+    // Marca la posición como visitada
+    maze[x][y] = '.';
+
+    // Incrementa el contador de pasos
+    (*steps)++;
+
+    // Intenta moverse en cada una de las direcciones posibles
+    for (int i = 0; i < 4; i++) {
+        int newX = x + directions[i].x;
+        int newY = y + directions[i].y;
+        if (solveMaze(maze, newX, newY, endX, endY, steps)) {
+            return 1;  // Si se encontró una solución en esta dirección, retorna verdadero
+        }
+    }
+
+    // Si no se encontró una solución, desmarca la posición como visitada
+    maze[x][y] = PATH;
+
+    // Decrementa el contador de pasos
+    (*steps)--;
+
+    return 0;  // No se encontró una solución desde esta posición
+}
