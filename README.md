@@ -19,6 +19,8 @@ Este algoritmo simulá un juego interactivo donde un raton debe de moverse dentr
 
 
 `JUEGO DE LABERINTO EN C` 
+
+
 A partir de arreglos, funciones y bucles.
 
 [JUEGO DEL LABERINTO](laberinto.c)
