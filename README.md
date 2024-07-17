@@ -1,5 +1,5 @@
 # Laberinto
-Este programa simulá un juego interactivo donde un raton debe de moverse dnentro de un laberinto, el cual es representado por una matriz predefinida de 13x13. 
+Este algoritmo simulá un juego interactivo donde un raton debe de moverse dnentro de un laberinto, el cual es representado por una matriz predefinida de 13x13. 
 ## Funcionalidades: 
 1. ### Generación aleatoria del laberinto
 - El laberinto se genera dinámicamente con dimensiones predefinidas (13x13).
