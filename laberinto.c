@@ -25,62 +25,38 @@ Direction directions[] = {
 void generateMaze(char maze[N][N], int x, int y);
 void printMaze(char maze[N][N]);
 int solveMaze(char maze[N][N], int x, int y, int endX, int endY, int *steps);
-+++++++++++
-        for (int j = 0; j < colum; j++) {
-            if (i == raton_x && j == raton_y) {
-                printf("R ");  // Representación del ratón
-            } else if (laberinto[i][j] == 1) {
-                printf("0");  // Pared
-            } else {
-                printf(" ");  // Espacio libre
-            }
-        }
-        printf("\n");
-    }
+int main() {
+    char maze[N][N];
+    int i, j;
 
-   printf("\nInstrucciones de movimiento:\n");
-    printf("a - Mover raton hacia la izquierda\n");
-    printf("w - Mover raton hacia arriba\n");
-    printf("s - Mover raton hacia abajo\n");
-    printf("d - Mover raton hacia la derecha\n");
-    printf("q - Salir del laberinto\n");
-    char direccion;
-    while (1) {  // Bucle infinito para movimiento continuo
-        printf("\nraton: ");
-        scanf(" %c", &direccion);
-
-        clear_screen();
-        printf("raton:\n");
-
-        // Actualizar posición del ratón según la dirección ingresada y validar movimiento
-        if (direccion == 'w' && raton_x > 0 && laberinto[raton_x - 1][raton_y] == 0) {
-            raton_x--;
-        } else if (direccion == 'a' && raton_y > 0 && laberinto[raton_x][raton_y - 1] == 0) {
-            raton_y--;
-        } else if (direccion == 's' && raton_x < fila - 1 && laberinto[raton_x + 1][raton_y] == 0) {
-            raton_x++;
-        } else if (direccion == 'd' && raton_y < colum - 1 && laberinto[raton_x][raton_y + 1] == 0) {
-            raton_y++;
-        } else if (direccion == 'q') {
-            printf("Saliendo del laberinto...\n"); 
-        } else {
-            printf("Movimiento no válido.\n");
-        }
-// Mostrar laberinto con la nueva posición del ratón
-        for (int i = 0; i < fila; i++) {
-            for (int j = 0; j < colum; j++) {
-                if (i == raton_x && j == raton_y) {
-                    printf("R ");  // Representación del ratón
-                } else if (laberinto[i][j] == 1) {
-                    printf("0");  // Pared
-                } else {
-                    printf(" ");  // Espacio libre
-                }
-            }
-            printf("\n");
+    // Inicializa el laberinto con paredes
+    for (i = 0; i < N; i++) {
+        for (j = 0; j < N; j++) {
+            maze[i][j] = WALL;
         }
     }
+
+    // Semilla para la generación aleatoria
+    srand(time(NULL));
+
+    // Genera el laberinto
+    generateMaze(maze, 1, 1);
+
+    // Establece el inicio y el final
+    maze[1][1] = START;
+    maze[N-3][N-3] = END;
+
+    // Imprime el laberinto
+    printf("Laberinto generado:\n");
+    printMaze(maze);
+
+    // Resuelve el laberinto
+    int steps = 0;
+    if (solveMaze(maze, 1, 1, N-2, N-2, &steps)) {
+        printf("\nSolución encontrada en %d movimientos.\n", steps);
+    } else {
+        printf("\nNo se encontró solución.\n");
+    }
+
     return 0;
-
-    
 }
