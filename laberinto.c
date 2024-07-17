@@ -60,3 +60,32 @@ int main() {
 
     return 0;
 }
+
+// Función para generar el laberinto
+void generateMaze(char maze[N][N], int x, int y) {
+    maze[x][y] = PATH;
+    for (int i = 0; i < 4; i++) {
+        int r = rand() % 4;
+        Direction temp = directions[i];
+        directions[i] = directions[r];
+        directions[r] = temp;
+    }
+    for (int i = 0; i < 4; i++) {
+        int newX = x + directions[i].x * 2;
+        int newY = y + directions[i].y * 2;
+        if (newX > 0 && newY > 0 && newX < N-1 && newY < N-1 && maze[newX][newY] == WALL) {
+            maze[x + directions[i].x][y + directions[i].y] = PATH;
+            generateMaze(maze, newX, newY);
+        }
+    }
+}
+
+// Función para imprimir el laberinto
+void printMaze(char maze[N][N]) {
+    for (int i = 0; i < N; i++) {
+        for (int j = 0; j < N; j++) {
+            printf("%c ", maze[i][j]);
+        }
+        printf("\n");
+    }
+}
