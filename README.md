@@ -18,7 +18,7 @@ Este algoritmo simulá un juego interactivo donde un raton debe de moverse dentr
 - Se muestra un mensaje indicando que el ratón ha encontrado la salida de manera automática.
 
 
+`JUEGO DE LABERINTO EN C` 
+A partir de arreglos, funciones y bucles.
 
-# ActividadEnGrupo
-`Juego de Laberinto en C`, a partir de arreglos, funciones y bucles.
 [JUEGO DEL LABERINTO](laberinto.c)
