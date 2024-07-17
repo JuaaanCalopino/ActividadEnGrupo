@@ -1,31 +1,31 @@
-#include <stdio.h>  // Libreria utilizada para la entrada y salida de datos.
-#define fila 10  // Definir la dimension de la matriz, la cual va a hacer de 10x10 
-#define colum 10
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
 
-// Función para limpiar la pantalla
-void clear_screen() {
-    printf("\033[H\033[J");  // Utiliza caracteres de escape ANSI para limpiar la pantalla
-}
+#define N 14
+#define PATH ' '
+#define WALL '#'
+#define START 'S'
+#define END ' E'
 
-int main() {
-    int laberinto[fila][colum] = {
-        {1, 0, 1, 1, 1, 0, 1, 1, 1, 1},
-        {1, 0, 1, 1, 1, 0, 0, 0, 1, 1},
-        {1, 0, 1, 1, 1, 0, 1, 1, 1, 1},
-        {1, 0, 0, 0, 0, 0, 0, 0, 1, 1},
-        {1, 0, 1, 1, 1, 0, 1, 0, 1, 1},
-        {1, 0, 1, 1, 1, 0, 1, 0, 0, 1},
-        {1, 0, 1, 1, 1, 0, 1, 0, 0, 1},
-        {1, 0, 1, 1, 1, 0, 0, 0, 0, 1},
-        {1, 1, 1, 1, 1, 1, 0, 0, 1, 1},
-        {1, 1, 1, 1, 1, 1, 0, 0, 1, 1}
-    };
-printf("¡Bienvenido al Laberinto!\n\n");
-    int raton_x = 0, raton_y = 1;  // Posición inicial del ratón
+// Estructura para representar direcciones de movimiento
+typedef struct {
+    int x, y;
+} Direction;
 
-    clear_screen();
-    // Mostrar laberinto inicial con posición del ratón
-    for (int i = 0; i < fila; i++) {
+// Direcciones posibles: derecha, abajo, izquierda, arriba
+Direction directions[] = {
+    {0, 1},   // Derecha
+    {1, 0},   // Abajo
+    {0, -1},  // Izquierda
+    {-1, 0}   // Arriba
+};
+
+// Prototipos de funciones
+void generateMaze(char maze[N][N], int x, int y);
+void printMaze(char maze[N][N]);
+int solveMaze(char maze[N][N], int x, int y, int endX, int endY, int *steps);
++++++++++++
         for (int j = 0; j < colum; j++) {
             if (i == raton_x && j == raton_y) {
                 printf("R ");  // Representación del ratón
